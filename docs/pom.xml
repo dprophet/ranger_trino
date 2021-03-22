@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <name>Apache Ranger</name>
+    <description>
+        Apache Ranger is a framework to enable, monitor and manage comprehensive data security across the Hadoop platform. Apache Ranger currently provides a centralized security adminstration, fine grain access control and detailed auditing for user access within Apache Hadoop, Apache Hive, Apache HBase and other Apache components
+        
+    </description>
+    <url>http://ranger.apache.org/</url>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.apache.ranger</groupId>
+    <version>2.1.0</version>
+    <artifactId>ranger</artifactId>
+    <packaging>pom</packaging>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:svn:https://svn.apache.org/repos/asf/ranger/site/trunk</connection>
+        <developerConnection>scm:svn:https://svn.apache.org/repos/asf/ranger/site/trunk</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://svn.apache.org/repos/asf/ranger/site/trunk</url>
+    </scm>
+    <issueManagement>
+        <system>Jira</system>
+        <url>http://issues.apache.org/jira/browse/ranger</url>
+    </issueManagement>
+    <mailingLists>
+        <mailingList>
+            <name>User list</name>
+            <subscribe>mailto:user-subscribe@ranger.apache.org
+            </subscribe>
+            <unsubscribe>mailto:user-unsubscribe@ranger.apache.org
+            </unsubscribe>
+            <post>mailto:user@ranger.apache.org</post>
+            <archive>http://mail-archives.apache.org/mod_mbox/ranger-user/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Development list</name>
+            <subscribe>mailto:dev-subscribe@ranger.apache.org
+            </subscribe>
+            <unsubscribe>mailto:dev-unsubscribe@ranger.apache.org
+            </unsubscribe>
+            <post>mailto:dev@ranger.apache.org</post>
+            <archive>http://mail-archives.apache.org/mod_mbox/ranger-dev/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Commit list</name>
+            <subscribe>mailto:commits-subscribe@ranger.apache.org
+            </subscribe>
+            <unsubscribe>mailto:commits-unsubscribe@ranger.apache.org
+            </unsubscribe>
+            <post>mailto:commits@ranger.apache.org</post>
+            <archive>http://mail-archives.apache.org/mod_mbox/ranger-commits/</archive>
+        </mailingList>
+    </mailingLists>
+    <developers>
+        <developer>
+            <id>abhay</id>
+            <name>Abhay Kulkarni</name>
+            <email>abhay@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>alok</id>
+            <name>Alok Lal</name>
+            <email>alok@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Ebay
+            </organization>
+        </developer>
+        <developer>
+            <id>agates</id>
+            <name>Alan Gates</name>
+            <email>gates@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>Mentor</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>ankita</id>
+            <name>Ankita Sinha</name>
+            <email>ankita@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>bpatel</id>
+            <name>Bhavik Patel</name>
+            <email>bpatel@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>bganesan</id>
+            <name>Balaji Ganesan</name>
+            <email>bganesan@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+		Privacera
+            </organization>
+        </developer>
+        <developer>
+            <id>coheigea</id>
+            <name>Colm O hEigeartaigh</name>
+            <email>coheigea@apache.org</email>
+            <timezone>+0</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Talend
+            </organization>
+        </developer>
+        <developer>
+            <id>ddruno</id>
+            <name>Daniel Gruno</name>
+            <email>rumble@cord.dk</email>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Mentor</role>
+            </roles>
+            <organization>
+                Quokka IvS
+            </organization>
+        </developer>
+        <developer>
+            <id>ddas</id>
+            <name>Devaraj Das</name>
+            <email>ddas@hortonworks.com</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+            </roles>
+            <organization>
+            Hortonworks
+        </organization>
+        </developer>
+        <developer>
+            <id>deepaksharma</id>
+            <name>Deepak Sharma</name>
+            <email>deepaksharma@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>ddorai</id>
+            <name>Dilli Arumugam</name>
+            <email>dillidorai@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                BlueTalon
+            </organization>
+        </developer>
+        <developer>
+            <id>bdurai</id>
+            <name>Don Bosco Durai</name>
+            <email>bosco@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+		Privacera
+            </organization>
+        </developer>
+        <developer>
+            <id>gautam</id>
+            <name>Gautam Borad</name>
+            <email>gautam@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>jghoman</id>
+            <name>Jakob Homan</name>
+            <email>jghoman@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>Mentor</role>
+            </roles>
+            <organization>
+                Microsoft
+            </organization>
+        </developer>
+        <developer>
+            <id>kminder</id>
+            <name>Kevin Minder</name>
+            <email>kminder@apache.org</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+            </organization>
+        </developer>
+        <developer>
+            <id>lmccay</id>
+            <name>Larry Mccay</name>
+            <email>lmccay@apache.org</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+	<developer>
+            <id>mehul</id>
+            <name>Mehul Parikh</name>
+            <email>mehul@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>mneethiraj</id>
+            <name>Madhanmohan Neethiraj</name>
+            <email>madhan@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>nikhil</id>
+            <name>Nikhil Purbhe</name>
+            <email>nikhil@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>ni3galave</id>
+            <name>Nitin Galave</name>
+            <email>ni3galave@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+        </developer>
+        <developer>
+            <id>omalley</id>
+            <name>Owen O'Malley</name>
+            <email>omalley@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>Champion, Committer, Mentor</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+	<developer>
+            <id>pradeep</id>
+            <name>Pradeep Agrawal</name>
+            <email>pradeep@apache.org</email>
+            <timezone>Asia/Kolkata</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Freestone Infotech
+            </organization>
+	</developer>
+        <developer>
+            <id>rmani</id>
+            <name>Ramesh Mani</name>
+            <email>mani@hortonworks.com</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                    Hortonworks
+                </organization>
+        </developer>
+	<developer>
+            <id>spolavarapu</id>
+            <name>Sailaja Polavarapu</name>
+            <email>spolavarapu@apache.org</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>sradia</id>
+            <name>Sanjay Radia</name>
+            <email>sanjay@hortonworks.com</email>
+            <timezone>-8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+        <developer>
+            <id>sneethiraj</id>
+            <name>Selvamohan Neethiraj</name>
+            <email>sneethir@apache.org</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                InfoTekies
+            </organization>
+        </developer>
+        <developer>
+            <id>vel</id>
+            <name>Velmurugan Periasamy</name>
+            <email>vel@apache.org</email>
+            <timezone>-5</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+	<developer>
+            <id>zhangqiang</id>
+            <name>zhang qiang</name>
+            <email>zhangqiang@apache.org</email>
+            <timezone>+8</timezone>
+            <roles>
+                <role>PMC</role>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                ZTE
+            </organization>
+        </developer>
+	<developer>
+            <id>pengjianhua</id>
+            <name>Jianhua Peng</name>
+            <email>pengjianhua@apache.org</email>
+            <timezone>+8</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                NIIT
+            </organization>
+        </developer>
+        <developer>
+            <id>zsombor</id>
+            <name>Zsombor Gegesy</name>
+            <email>zsombor@apache.org</email>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Committer</role>
+            </roles>
+            <organization>
+                Hortonworks
+            </organization>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+          	<name>Alejandro Fernandez</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Aneela Saleem</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Ankit Singhal</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Anna Shaverdian</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Arshad Mohammad</name>
+          	<organization>Huawei</organization>
+        </contributor>
+        <contributor>
+          	<name>Ashish Singh</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Bennet Daniel</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Bolke de Bruin</name>
+          	<organization>ING</organization>
+        </contributor>
+        <contributor>
+          	<name>Bryan Bende</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Dhaval Rajpara</name>
+          	<organization>Freestone</organization>
+        </contributor>
+        <contributor>
+          	<name>Dongying Jiao</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Edward Zhang</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Endre Kovacs</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Fatima Amjad Khan</name>
+          	<organization>Freestone Infotech</organization>
+        </contributor>
+        <contributor>
+          	<name>Haihui Xu</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Hanish Bansal</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Jim Halfpenny</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Kent Yao</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Kevin Risden</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Koji Kawamura</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Mack Hendricks</name>
+          	<organization>Hortonworks Inc.,</organization>
+        </contributor>
+        <contributor>
+          	<name>Madhavi Amirneni</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Mani Raman</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Mugdha Varadkar</name>
+          	<organization>Freestone Infotech</organization>
+        </contributor>
+        <contributor>
+          	<name>Nicholas Hughes</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Nigel Jones</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Nixon Rodrigues</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Paul Otto</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Peng Xing</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Rich Haase</name>
+          	<organization>Pandora</organization>
+        </contributor>
+        <contributor>
+          	<name>Rohit Sinha</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Shi Wang</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Sree Vaddi</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Suneel Marthi</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Tushar Dudhatra</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Varun Rao</name>
+          	<organization>Accenture</organization>
+        </contributor>
+        <contributor>
+          	<name>Vishal Suvagia</name>
+          	<organization>Freestone Infotech</organization>
+        </contributor>
+        <contributor>
+          	<name>Wang Yuan</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Yan Zhou</name>
+          	<organization></organization>
+        </contributor>
+        <contributor>
+          	<name>Yujie Li</name>
+          	<organization></organization>
+        </contributor>
+    </contributors>
+    <organization>
+        <name>Apache Software Foundation</name>
+        <url>http://www.apache.org/</url>
+    </organization>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.4.3</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7</version>
+                    <dependencies>
+                      <dependency>
+                        <groupId>org.apache.velocity</groupId>
+                        <artifactId>velocity</artifactId>
+                        <version>1.7</version>
+                      </dependency>
+                    </dependencies>
+                    <configuration>
+                        <outputDirectory>./target</outputDirectory>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.4</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>project-team</report>
+                            <report>mailing-list</report>
+                            <report>issue-tracking</report>
+                            <report>license</report>
+                            <report>summary</report>
+                            <!-- for now
+                             <report>modules</report>
+                             <report>dependencies</report>
+                             <report>cim</report>
+                             <report>scm</report>
+                             -->
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+    <distributionManagement>
+        <site>
+            <id>apache-website</id>
+            <name>Apache website</name>
+            <url>scpexe://people.apache.org/www/apache.org/ranger</url>
+        </site>
+    </distributionManagement>
+</project>

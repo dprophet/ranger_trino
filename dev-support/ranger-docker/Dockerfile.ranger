@@ -1,0 +1,40 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+FROM ranger-base:latest
+
+
+COPY ./dist/version                              ${RANGER_DIST}/
+COPY ./scripts/ranger.sh                         ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-admin-install.properties   ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-hdfs-service-dev_hdfs.py   ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-yarn-service-dev_yarn.py   ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-hive-service-dev_hive.py   ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-hbase-service-dev_hbase.py ${RANGER_SCRIPTS}/
+COPY ./scripts/ranger-kafka-service-dev_kafka.py ${RANGER_SCRIPTS}/
+
+COPY ./dist/ranger-${RANGER_VERSION}-admin.tar.gz /tmp/
+RUN tar xvfz /tmp/ranger-${RANGER_VERSION}-admin.tar.gz --directory=${RANGER_HOME} && \
+    ln -s ${RANGER_HOME}/ranger-${RANGER_VERSION}-admin ${RANGER_HOME}/admin && \
+    rm -f /tmp/ranger-${RANGER_VERSION}-admin.tar.gz && \
+    cp -f ${RANGER_SCRIPTS}/ranger-admin-install.properties ${RANGER_HOME}/admin/install.properties && \
+    mkdir -p /var/run/ranger && \
+    mkdir -p /var/log/ranger && \
+    chown -R ranger:ranger ${RANGER_HOME}/admin/ /var/run/ranger/ /var/log/ranger/ && \
+    mkdir -p /usr/share/java/ && \
+    wget "https://search.maven.org/remotecontent?filepath=org/postgresql/postgresql/42.2.16.jre7/postgresql-42.2.16.jre7.jar" -O /usr/share/java/postgresql.jar
+
+ENTRYPOINT [ "/home/ranger/scripts/ranger.sh" ]
