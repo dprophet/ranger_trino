@@ -23,7 +23,7 @@
     </parent>
     <groupId>org.apache.ranger</groupId>
     <artifactId>ranger</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
     <description>Security for Enforcing Enterprise Policies</description>
     <packaging>pom</packaging>
     <name>ranger</name>
@@ -282,7 +282,6 @@
                 <module>ranger-kms-plugin-shim</module>
                 <module>ranger-presto-plugin-shim</module>
                 <module>ranger-trino-plugin-shim</module>
-                <module>ranger-examples</module>
                 <module>ranger-tools</module>
                 <module>plugin-atlas</module>
                 <module>plugin-schema-registry</module>
@@ -297,15 +296,6 @@
                    ranger-elasticsearch-plugin-shim, make sure to update dependency in distro/pom.xml
                 -->
                 <module>distro</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>ranger-examples</id>
-            <modules>
-                <module>agents-common</module>
-                <module>agents-cred</module>
-                <module>intg</module>
-                <module>ranger-examples</module>
             </modules>
         </profile>
         <profile>
@@ -589,7 +579,6 @@
                 <module>ranger-solr-plugin-shim</module>
                 <module>ranger-atlas-plugin-shim</module>
                 <module>ranger-kms-plugin-shim</module>
-                <module>ranger-examples</module>
                 <module>ranger-tools</module>
                 <module>plugin-atlas</module>
                 <module>plugin-schema-registry</module>
@@ -677,7 +666,6 @@
                 <module>ranger-kms-plugin-shim</module>
                 <module>ranger-presto-plugin-shim</module>
                 <module>ranger-trino-plugin-shim</module>
-                <module>ranger-examples</module>
                 <module>ranger-tools</module>
                 <module>plugin-atlas</module>
                 <module>plugin-schema-registry</module>

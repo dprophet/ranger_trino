@@ -1,11 +1,11 @@
 {
-  "id": 17,
+  "id": 18,
   "name": "trino",
   "displayName": "trino",
   "implClass": "org.apache.ranger.services.trino.RangerServiceTrino",
   "label": "Trino",
   "description": "Trino",
-  "guid": "379a9fe5-1b6e-4091-a584-4890e245e6c1",
+  "guid": "0fd0b92e-46f9-4b25-ad46-89733872e8fb",
   "resources": [
     {
       "itemId": 1,
