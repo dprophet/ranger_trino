@@ -782,7 +782,6 @@ then
 fi
 
 if [ "${HCOMPONENT_NAME}" = "presto" ] || [ "${HCOMPONENT_NAME}" = "trino" ] ; then
-then
 	if [ "${action}" = "enable" ]
 	then
 		controlName="ranger"
